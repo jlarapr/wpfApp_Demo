@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+	  <ApplicationIcon>assets\app.ico</ApplicationIcon>
+	  <AssemblyVersion>2023.03.09</AssemblyVersion>
+	  <FileVersion>2023.03.09</FileVersion>
+	  <Version>2023.03.09</Version>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="appsettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\app.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+		<PackageReference Include="NDbfReader" Version="2.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="assets\vdeFiles\" />
+	</ItemGroup>
+	
+	
+</Project>

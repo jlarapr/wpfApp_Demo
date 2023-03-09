@@ -1,0 +1,123 @@
+﻿<Window x:Class="wpfApp_Demo.src.ui.views.MainWpf"
+        x:Name="MyMainwindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfApp_Demo.src.ui.views"
+        mc:Ignorable="d"
+        DataContext="{Binding Source={StaticResource Locator}, Path=MainVm}"
+        WindowStartupLocation ="CenterScreen" WindowStyle="None"
+        Background="{x:Null}" AllowsTransparency="True" 
+        Title="Applica Demo 2023" Height="600" Width="800" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary Source="DictionaryWithBrush.xaml" />
+    </Window.Resources>
+
+    <Grid Margin="0">
+        <Border BorderThickness="1" CornerRadius="10" BorderBrush="Black" Margin="10,10,10,10">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" />
+                    <GradientStop Color="White" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid Margin="11,9,9,11">
+                <Label
+                    x:Name="lblVDEFile"
+                    FontSize="18"
+                    Width="102"
+                    Height="30"
+                    Margin="10,109,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="VDE File:" />
+
+                <TextBox
+                    x:Name="TxtVdeFile"
+                    Height="30"
+                    Margin="10,147,158,0"
+                    VerticalAlignment="Top"
+                    FontFamily="Tahoma"
+                    IsReadOnly="False"
+                    Text="{Binding TxtVdeFile,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+
+                <Button
+                    x:Name="BtnVDEFile"
+                    Background="White"
+                    Width="35"
+                    Height="30"
+                    Margin="0,147,115,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Content="1    "
+                    Foreground="Black"
+                    Command="{Binding BtnVdeFile,Mode=OneWay}"
+                     />
+
+                <Label
+                    x:Name="lblFileOut"
+                    FontSize="18"
+                    Width="137"
+                    Height="30"
+                    Margin="10,178,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="File OutPut:" />
+
+                <TextBox
+                    x:Name="TxtFileOut"
+                    Height="30"
+                    Margin="10,210,158,0"
+                    VerticalAlignment="Top"
+                    FontFamily="Tahoma"
+                    IsReadOnly="False"
+                    Text="{Binding TxtFileOut,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+
+                <Button
+                    x:Name="BtnFileOut"
+                    Background="White"
+                    Width="35"
+                    Height="30"
+                    Margin="0,210,115,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Foreground="Black"
+                    Content="2    "
+                    Command="{Binding BtnFileOut,Mode=OneWay}"  />
+
+                <ListBox
+                    x:Name="ListLog"
+                    Margin="10,276,158,10"
+                    ItemsSource="{Binding ListLog,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    SelectedIndex="{Binding LibLogSelectedIndex[0],Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    IsSynchronizedWithCurrentItem="True"
+                    VirtualizingStackPanel.VirtualizationMode ="Recycling"
+                     />
+
+
+
+                <Button x:Name="BtnClose" Content="Exit" Command="{Binding BtnClose, Mode=OneWay}"
+                            CommandParameter="{Binding ElementName=MyMainwindow}" Height="46" Margin="0,0,10,10"
+                            VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="143" />
+                <TextBlock Text="{Binding TxtTitel,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Foreground="WhiteSmoke" FontSize="30" TextAlignment="Center" Height="74" Margin="10,24,10,0" TextWrapping="Wrap"
+                               VerticalAlignment="Top" />
+                <Label
+                    x:Name="lblLog"
+                    FontSize="15"
+                    Width="137"
+                    Height="30"
+                    Margin="10,241,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Log:" />
+                <Button x:Name="BtnSave" Content="Save" Command="{Binding BtnSave, Mode=OneWay}"
+                    Height="46" Margin="0,0,10,233"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="143" />
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
