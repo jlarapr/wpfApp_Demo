@@ -4,6 +4,9 @@ Demo Wpf
 ## By Jose Lara
 2023-02-05
 
+![alt text](https://github.com/jlarapr/wpfApp_Demo/blob/dev/assets/main.png?raw=true)
+
+
 ### Estructura de directorios
 1. assets
     - vdeFiles
