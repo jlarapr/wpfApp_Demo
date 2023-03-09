@@ -56,10 +56,10 @@ Demo Wpf
         base de dato de ejemplo para, asi poder hacer el demo. 
 
 # src
-    contiene el c�digo de la aplicaci�n 
+    contiene el código de la aplicaci�n 
 
 # core
-    contiene todas la programaci�n de la aplicaci�n
+    contiene todas la programación de la aplicaci�n
     data, interface, models, services y viewModels
 
 # ui (user interface)
