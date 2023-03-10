@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                      x:Name="sy"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:csPSMVital.UI.Views">
+                    xmlns:local="clr-namespace:wpfApp_Demo.src.ui.views">
 
     <Style x:Key="{x:Type Label}" TargetType="{x:Type Label}">
         <Setter Property="Label.FontFamily" Value="Verdana"></Setter>
