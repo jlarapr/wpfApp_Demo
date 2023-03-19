@@ -4,7 +4,8 @@
  * 2023.03.09
  */
 
-namespace wpfApp_Demo.src.core.viewModels {
+namespace wpfApp_Demo.src.core.viewModels
+{
     using System;
     using System.Threading.Tasks;
 
@@ -18,6 +19,9 @@ namespace wpfApp_Demo.src.core.viewModels {
     using wpfApp_Demo.src.core.interfaces.services;
     using wpfApp_Demo.src.core.services;
     using System.Data;
+    using System.Data.OleDb;
+    using OfficeOpenXml;
+    using System.IO;
 
     public partial class MainVm : ObservableObject {
 
@@ -124,7 +128,25 @@ Version: {GetType().Assembly.GetName().Version}";
             try {
 
                 // TODO to Implemented
-                throw new NotImplementedException();
+                ExcelPackage.LicenseContext = LicenseContext.Commercial;
+                string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=assets/vdeFiles/SSS1503.dbf;";
+
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    connection.Open();
+                    OleDBDataReader imagenesReader = new OleDbCommand("SELECT COUNT(v0document) FROM SSS1503.dbf", connection).ExecuteReader();
+                    OleDBDataReader reclamacionesReader = new OleDbCommand("SELECT COUNT(v1page) FROM SSS1503.dbf WHERE v1page < 99", connection).ExecuteReader();
+                    ExcelPackage package = new ExcelPackage(new FileInfo("Totales.xlsx"));
+                    package.Workbook.Worksheets.Add("Resultados").Cells[1, 1].Value = "Date";
+                    package.Workbook.Worksheets.Add("Resultados").Cells[1, 2].Value = DateTime.Now.ToString("dd/MM/yyyy");
+                    package.Workbook.Worksheets.Add("Resultados").Cells[2, 1].Value = "Total Imagenes";
+                    package.Workbook.Worksheets.Add("Resultados").Cells[2, 2].Value = imagenesReader.GetInt32(0);
+                    package.Workbook.Worksheets.Add("Resultados").Cells[3, 1].Value = "Total Reclamaciones";
+                    package.Workbook.Worksheets.Add("Resultados").Cells[3, 2].Value = reclamacionesReader.GetInt32(0);
+
+                    package.Save();
+                    connection.Close();
+                }
 
             } catch (Exception err) {
                 MessageBox.Show(err.ToString(), "ClickBtnSave", MessageBoxButton.OK, MessageBoxImage.Error);
