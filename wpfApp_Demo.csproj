@@ -6,9 +6,9 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
 	  <ApplicationIcon>assets\app.ico</ApplicationIcon>
-	  <AssemblyVersion>2023.03.09</AssemblyVersion>
-	  <FileVersion>2023.03.09</FileVersion>
-	  <Version>2023.03.09</Version>
+	  <AssemblyVersion>2023.03.20</AssemblyVersion>
+	  <FileVersion>2023.03.20</FileVersion>
+	  <Version>2023.03.20</Version>
   </PropertyGroup>
 
 	<ItemGroup>
